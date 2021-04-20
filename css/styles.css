@@ -1,3 +1,302 @@
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.btn-primary {
+  background-color: #293356;
+  color: #858fad;
+  padding: 0.5em 2em;
+  border-radius: 2em;
+  border: 0;
+}
+
+.btn-primary:hover {
+  background-color: #293356;
+  color: white;
+}
+
+body {
+  font-size: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #10d5c2;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #a5f3eb;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 .content {
-  min-width: 100vh;
+  min-height: 100vh;
+  background-color: #fafbff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url(../images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  font-family: "Manrope", sans-serif;
+}
+.content .description {
+  color: #293356;
+  text-align: center;
+  background-image: url(../images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-bottom: 3em;
+}
+.content .description h1 {
+  margin-bottom: 0.5em;
+}
+.content .pricing-card {
+  margin-left: 24px;
+  margin-right: 24px;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  background-color: white;
+  border-bottom: 0.5em;
+  box-shadow: 0px 7px 49px 1px rgba(133, 143, 173, 0.1);
+  -webkit-box-shadow: 0px 7px 49px 1px rgba(133, 143, 173, 0.1);
+  -moz-box-shadow: 0px 7px 49px 1px rgba(133, 143, 173, 0.1);
+  min-width: 375px;
+  border-radius: 0.5em;
+}
+.content .pricing-card .views-price {
+  padding-left: 24px;
+  padding-right: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.content .pricing-card .views-price .pageviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #858fad;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+.content .pricing-card .views-price .pageviews #views {
+  margin-right: 0.2em;
+}
+.content .pricing-card .views-price .slider-menu {
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.content .pricing-card .views-price .slider-menu .price-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #a5f3eb 0%, #a5f3eb 50%, #eaeefb 50%, #eaeefb 100%);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.content .pricing-card .views-price .slider-menu .price-slider:hover {
+  opacity: 1;
+}
+.content .pricing-card .views-price .slider-menu .price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-size: auto;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0;
+  border-radius: 100%;
+  background-color: #10d5c2;
+  background-image: url("../images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 17px 17px 7px #eaeefb;
+  cursor: grab;
+  -webkit-transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
+}
+.content .pricing-card .views-price .slider-menu .price-slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-size: auto;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0;
+  border-radius: 100%;
+  background-color: #10d5c2;
+  background-image: url("../images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 17px 17px 7px #eaeefb;
+  cursor: grab;
+  -moz-transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
+}
+.content .pricing-card .views-price .price {
+  display: flex;
+  justify-content: center;
+  color: #293356;
+  align-items: center;
+}
+.content .pricing-card .views-price .price h4 {
+  display: flex;
+  justify-content: center;
+  color: #293356;
+  align-items: center;
+  font-size: 1em;
+}
+.content .pricing-card .views-price .price h4 #amount {
+  font-size: 2.2em;
+  margin-right: 0.15em;
+}
+.content .pricing-card .views-price .year-month-toggle {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  color: #858fad;
+}
+.content .pricing-card .views-price .year-month-toggle h5 {
+  font-size: 1em;
+}
+.content .pricing-card .views-price .year-month-toggle .toggle {
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+}
+.content .pricing-card .views-price .year-month-toggle::after {
+  position: absolute;
+  content: "-25%";
+  color: #ff8c66;
+  background-color: #feece7;
+  padding: 0.4em;
+  right: -20px;
+  border-radius: 1em;
+}
+.content .pricing-card hr {
+  border-color: #fafbff;
+}
+.content .pricing-card .points-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content .pricing-card .points-button .bullet-points {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.content .pricing-card .points-button .bullet-points ul li {
+  color: #858fad;
+  text-decoration: none;
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+.content .pricing-card .points-button .bullet-points ul li::before {
+  content: url("../images/icon-check.svg");
+  margin-right: 1em;
+}
+.content .pricing-card .points-button .start-trial {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+@media (min-width: 768px) {
+  .content .pricing-card {
+    min-width: 540px;
+  }
+  .content .pricing-card .views-price {
+    grid-template-columns: 1fr 1fr;
+  }
+  .content .pricing-card .views-price .pageviews {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    justify-content: flex-start;
+  }
+  .content .pricing-card .views-price .price {
+    justify-content: flex-end;
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+  .content .pricing-card .views-price .slider-menu {
+    grid-row: 2/3;
+    grid-column: 1/3;
+  }
+  .content .pricing-card .views-price .year-month-toggle {
+    grid-row: 3/4;
+    grid-column: 1/3;
+  }
+  .content .pricing-card .views-price .year-month-toggle::after {
+    content: "-25% discount";
+    right: -10px;
+  }
+  .content .pricing-card .points-button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .content .pricing-card .points-button .bullet-points {
+    text-align: left;
+  }
+  .content .pricing-card .points-button .start-trial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
