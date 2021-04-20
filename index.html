@@ -67,7 +67,7 @@
           </ul>
         </div>
         <div class="start-trial">
-          <button type="button fw-800" class="btn btn-primary">Primary</button>
+          <button type="button fw-800" class="btn btn-primary">Start my trial</button>
         </div>
       </div>
     </div>
@@ -80,58 +80,63 @@
     const pageviews = document.getElementById("views");
     const amount = document.getElementById("amount");
 
-    let prices = [[{
+    let prices = [{
       price: "$8.00",
       views: "10K",
+      annualPrice: "$6.00",
     },
     {
       price: "$12.00",
       views: "50K",
+      annualPrice: "$6.00",
     },
     {
       price: "$16.00",
       views: "100K",
+
+      annualPrice: "$12.00",
     },
     {
       price: "$24.00",
       views: "500K",
+      annualPrice: "$18.00",
     },
     {
       price: "$36.00",
       views: "1M",
-    },], [
+      annualPrice: "$25.00",
+    }, {
+      price: "$48.00",
+      views: "1.5M",
+      annualPrice: "$36.00",
 
-      {
-        price: "$6.00",
-        views: "10K",
-      },
-      {
-        price: "$8.00",
-        views: "50K",
-      },
-      {
-        price: "$12.00",
-        views: "100K",
-      },
-      {
-        price: "$18.00",
-        views: "500K",
-      },
-      {
-        price: "$25.00",
-        views: "1M",
-      },
-    ]]
+    }
+      , {
+      price: "$60.00",
+      views: "2M",
+      annualPrice: "$45.00",
+
+    }
+    ]
+    // setting the ranges max to the items in the array
+    myRange.max = prices.length - 1;
+    // putting the slider in the middle if we add items
+    myRange.value = Math.floor((prices.length - 1) / 2);
+
+    // get results function
     function getResults() {
-
       if (checkbox.checked) {
-        pageviews.innerHTML = prices[1][myRange.value].views;
-        amount.innerHTML = prices[1][myRange.value].price;
+        pageviews.innerHTML = prices[myRange.value].views;
+        amount.innerHTML = prices[myRange.value].annualPrice;
 
       } else {
-        pageviews.innerHTML = prices[0][myRange.value].views;
-        amount.innerHTML = prices[0][myRange.value].price;
+        pageviews.innerHTML = prices[myRange.value].views;
+        amount.innerHTML = prices[myRange.value].price;
       }
+      //filling in the gradient everytimme there is a change or on load
+      let fillTrackPct = myRange.value * (100 / (prices.length - 1));
+      myRange.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%) "
+        + fillTrackPct + "%, hsl(224, 65%, 95%) " + fillTrackPct + "%, hsl(224, 65%, 95%) 100%)";
     }
     checkbox.addEventListener('change', function () {
       console.log("checked")
@@ -139,11 +144,10 @@
     });
     myRange.addEventListener('input', function () {
       getResults()
-      let fillTrackPct = this.value * 25;
-      this.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%) "
-        + fillTrackPct + "%, hsl(224, 65%, 95%) " + fillTrackPct + "%, hsl(224, 65%, 95%) 100%)";
-    });
 
+
+    });
+    // get results on load
     getResults();
 
   </script>

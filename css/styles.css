@@ -19,6 +19,11 @@
   color: white;
 }
 
+.btn-primary:focus {
+  background-color: #293356;
+  color: white;
+}
+
 body {
   font-size: 15px;
 }
@@ -144,7 +149,6 @@ input:checked + .slider:before {
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background: linear-gradient(to right, #a5f3eb 0%, #a5f3eb 50%, #eaeefb 50%, #eaeefb 100%);
   outline: none;
   opacity: 0.7;
   transition: opacity 0.2s;
